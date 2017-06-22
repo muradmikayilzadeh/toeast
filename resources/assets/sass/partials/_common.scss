@@ -1,0 +1,47 @@
+html,body{
+	font-size:18px;
+	transition: all .4s ease;
+}
+
+.section-heading{
+	color:#9DC02F;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-family:$mainFont;
+}
+
+.heading{
+	font-weight:bold;
+	text-transform:uppercase;
+	font-family:$mainFont;
+	font-size:2.5em;
+	color:#444444;
+	text-decoration:none;
+}
+.main-button{
+	color:white;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	font-weight: bold;
+	background:#FC5640;
+	padding:15px 30px;
+	border-radius:30px;
+	text-decoration: none !important;
+	border:2px solid #FC5640;
+	font-family:$mainFont;
+
+	&:hover{
+		background:transparent;
+		color:#FC5640;
+	}
+}
+
+.heading-footer{
+	font:{
+		family:$mainFont;
+		size:1.8em;
+		weight:bold;
+	}
+	color:white;
+	text-transform:uppercase;
+}

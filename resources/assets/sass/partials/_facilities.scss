@@ -1,0 +1,30 @@
+#facilities{
+	background:#F6F5F2;
+	.container{
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+	
+	#reasons{
+		a{
+			font-size: 3.5em;
+			text-decoration: none;
+			color:#C5C4BD;
+			margin-top: 40px;
+			margin-bottom: 40px;
+			transition: all .4s ease;
+			&:hover{
+				color:#9ABE29;
+			}
+		}
+		.heading{
+			font-size: 1.6em;
+		}
+		p{
+			font-size: .9em;
+			font-family: $mainFont;
+			color:#797C7E;
+		}
+	}
+
+}

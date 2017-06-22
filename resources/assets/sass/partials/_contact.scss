@@ -1,0 +1,73 @@
+#contact{
+	background:#F6F5F2;
+
+	.container{
+		margin-top: 50px;
+		margin-bottom:80px;
+	}
+}
+
+	// =============Message===============
+
+	#message,#form{
+		margin-top: 30px;
+		form{
+			margin-top: 50px;
+			input,textarea{
+				width: 100%;
+				padding: 20px;
+				color:#ACB4B6;
+				font-family: $mainFont;
+				transition: all .4s ease;
+				outline:none;
+				border:1px solid #D0D1D0;
+
+				&:focus{
+					border:1px solid green;
+				}
+				&:hover{
+					border:1px solid red;
+				}
+			}
+			input{
+				height: 50px;				
+			}
+		}
+	}
+
+	.main-button{
+		padding:13px 40px;
+		font-size: .9em;
+		transition: all .3s ease;
+		&:hover{
+			background:white;
+		}
+	}
+
+
+	// ============Contacts===============
+	#contacts{
+		margin-top: 30px;
+	
+		.address{
+			margin-top: 50px !important;
+
+		}
+		.address,.phone,.email{
+			font-family: $mainFont;
+			margin-top: 30px;
+			h4{
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+		}
+
+		.phone{
+			p{color:#9ABE29;}
+		}
+
+	}
+
+	iframe{
+		margin-top: 30px;
+	}

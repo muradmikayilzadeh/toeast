@@ -1,0 +1,21 @@
+@import 'partials/variables';
+@import 'partials/common';
+@import 'partials/header';
+@import 'partials/page-address';
+@import 'partials/news';
+@import 'partials/sidebar';
+@import 'partials/footer';
+@import 'partials/end';
+
+
+// Extra
+
+#header{
+	background:none;
+}
+
+#blogs .blog img{margin:0;}
+
+#blogs .blog{border:none;}
+
+#blogs .row{margin-top:80px;margin-bottom:80px;}

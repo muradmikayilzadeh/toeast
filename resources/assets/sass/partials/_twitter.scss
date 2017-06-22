@@ -1,0 +1,28 @@
+#twitter{
+
+	background:#9ABE29;
+	color:white;
+
+	.container{
+		margin-top: 50px;
+		margin-bottom: 50px;
+		text-align: center;
+		
+		.content{
+			i{
+				font-size: 3em;
+			}
+			p{
+				font:{
+					family:$mainFont;
+					size:1.5em;
+					weight:bold;
+				}
+				margin:0;
+				padding: 0;
+			}
+		}
+
+	}
+
+}

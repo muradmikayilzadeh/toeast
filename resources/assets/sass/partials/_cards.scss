@@ -1,0 +1,67 @@
+#cards{
+	background:#F6F5F2;
+
+	.container{
+		margin-top: 50px;
+		margin-bottom: 80px;
+	}
+
+	.card{
+		margin-top: 30px;
+		.body{
+			img{
+				border-radius: 0 0 50% 50%;
+			}
+
+			.heading{
+				color:white;
+				font:{
+					family:$secondFont;
+					size:1.8em;
+				}
+				margin-top: 10px;
+			}
+			p{
+				color:white;
+				text-transform: uppercase;
+				font:{
+					family:$mainFont;
+					weight:700;
+					size:2em;
+				}
+			}
+
+			.more{
+				color:#4A4A4A;
+				font-size: .8em;
+				background:white;
+				text-transform: uppercase;
+				font-weight: bold;
+				padding:12px 1.62em;
+				border-radius:30px;
+				text-decoration: none;
+				transition: all .4s ease;
+
+				&:hover{
+					background:#444444;
+					color:white;
+				}
+			}
+			
+		}
+	}
+
+	// ===========Common============
+	.red{
+		background:#FC5640;
+	}
+
+	.green{
+		background: #9ABE29;
+	}
+
+	.yellow{
+		background:#FFCB47;
+	}
+
+}

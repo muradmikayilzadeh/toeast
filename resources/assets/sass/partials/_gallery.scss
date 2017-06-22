@@ -1,0 +1,31 @@
+#gallery{
+	.container{
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+
+	#imgs .img{
+		display: inline-block;
+		float: left;
+		margin-top: 10px;
+		margin-left: 10px;
+		transition: all .4s ease;
+		background:rgba(17, 19, 24, 0.9);
+		&:hover{
+			cursor: pointer;
+			img{
+				opacity: .5;
+			}
+		}
+
+		img{
+			margin:0;
+			padding:0;
+		}
+	}
+
+	.first{
+		margin-left: 0;
+	}
+
+}
