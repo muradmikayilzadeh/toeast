@@ -26,16 +26,15 @@
 			<div class="container text-center">
 				
 				<h4 class="section-heading">-news-</h4>
-
+				
+				@foreach($blogs as $blog)
 				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
 					
-					<h2 class="heading">WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</h2>
+					<h2 class="heading">{{$blog->title}}</h2>
 
 					<div class="date">
-						feb 29, 2016 
-						<i class="fa fa-comment"></i> 0
-						|
-						By Admin
+						{{$blog->created_at}} | 
+						By {{$blog->user->name}}
 					</div>
 
 					<img src="assets/images/blog/4.jpg" class="img img-responsive">
@@ -43,113 +42,14 @@
 					<br>
 
 					<div class="description">
-						Phasellus semper nisi eu quam eleifend, eu tullam vel pellentesque tortor, nec ornare enim.
+						{{substr($blog->content,0,100)}}
 					</div>
 					<br>
 					<a href="" class="main-button">read more</a>
 					<br><br><br>
 
-				</div>
-
-
-				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
-					
-					<h2 class="heading">WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</h2>
-
-					<div class="date">
-						feb 29, 2016 
-						<i class="fa fa-comment"></i> 0
-						|
-						By Admin
-					</div>
-
-					<img src="assets/images/blog/4.jpg" class="img img-responsive">
-
-					<br>
-
-					<div class="description">
-						Phasellus semper nisi eu quam eleifend, eu tullam vel pellentesque tortor, nec ornare enim.
-					</div>
-					<br>
-					<a href="" class="main-button">read more</a>
-					<br><br><br>
-
-				</div>
-
-
-				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
-					
-					<h2 class="heading">WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</h2>
-
-					<div class="date">
-						feb 29, 2016 
-						<i class="fa fa-comment"></i> 0
-						|
-						By Admin
-					</div>
-
-					<img src="assets/images/blog/4.jpg" class="img img-responsive">
-
-					<br>
-
-					<div class="description">
-						Phasellus semper nisi eu quam eleifend, eu tullam vel pellentesque tortor, nec ornare enim.
-					</div>
-					<br>
-					<a href="" class="main-button">read more</a>
-					<br><br><br>
-
-				</div>
-
-
-				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
-					
-					<h2 class="heading">WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</h2>
-
-					<div class="date">
-						feb 29, 2016 
-						<i class="fa fa-comment"></i> 0
-						|
-						By Admin
-					</div>
-
-					<img src="assets/images/blog/4.jpg" class="img img-responsive">
-
-					<br>
-
-					<div class="description">
-						Phasellus semper nisi eu quam eleifend, eu tullam vel pellentesque tortor, nec ornare enim.
-					</div>
-					<br>
-					<a href="" class="main-button">read more</a>
-					<br><br><br>
-
-				</div>
-
-
-				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
-					
-					<h2 class="heading">WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</h2>
-
-					<div class="date">
-						feb 29, 2016 
-						<i class="fa fa-comment"></i> 0
-						|
-						By Admin
-					</div>
-
-					<img src="assets/images/blog/4.jpg" class="img img-responsive">
-
-					<br>
-
-					<div class="description">
-						Phasellus semper nisi eu quam eleifend, eu tullam vel pellentesque tortor, nec ornare enim.
-					</div>
-					<br>
-					<a href="" class="main-button">read more</a>
-					<br><br><br>
-
-				</div>				
+				</div>	
+				@endforeach	
 
 			</div>
 

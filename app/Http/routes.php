@@ -47,6 +47,4 @@ Route::get('/gallery',function(){
 	return view('gallery');
 });
 
-Route::get('/news',function(){
-	return view('news');
-});
+Route::get('/news','BlogController@getBlogs');
