@@ -48,3 +48,16 @@ Route::get('/gallery',function(){
 });
 
 Route::get('/news','BlogController@getBlogs');
+Route::get('/news/{slug}','BlogController@getBlog');
+
+
+// Admin
+Route::group(['middleware' => ['auth']],function(){
+
+	Route::post('create-news','BlogController@createBlog');
+	Route::post('news/','BlogController@createBlog');
+	Route::post('/news/update-img','BlogController@updateImg');
+	Route::post('/news/update-content','BlogController@updateContent');
+	Route::post('/news/update-title','BlogController@updateTitle');
+
+});

@@ -11,6 +11,10 @@
 	<link href="{{'https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700'}}" rel="stylesheet">
 	<link href="{{'https://fonts.googleapis.com/css?family=Damion'}}" rel="stylesheet">
 
+	<!-- Scripts -->
+	<script src="{{url('assets/vendor/js/jquery-3.2.1.min.js')}}"></script>
+	<script src="{{url('assets/js/menu.js')}}"></script>
+
 </head>
 <body>
 
@@ -277,6 +281,3 @@
 
 </body>
 </html>
-<!-- Scripts -->
-<script src="{{url('assets/vendor/js/jquery-3.2.1.min.js')}}"></script>
-<script src="{{url('assets/js/menu.js')}}"></script>

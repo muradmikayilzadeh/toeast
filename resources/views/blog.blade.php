@@ -1,6 +1,8 @@
 @extends('layouts.const')
 		
 		<link rel="stylesheet" href="{{url('assets/css/blog.css')}}">
+		<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>
+
 
 @section('content')
 
@@ -8,7 +10,7 @@
 			
 			<div class="container">
 				
-				<p>WE TEACH YOUR KIDS THAT RESPONIBILITY IS FUN</p>
+				<p>{{$blog->title}} | {{$blog->user->name}}</p>
 
 				<div class="address pull-right">
 					<a href="index.html">home</a>
@@ -22,6 +24,14 @@
 		</section>
 		
 		<div class="container">
+			
+			@if(Auth::user()->id == $blog->author)
+				<p style="color:red;padding-top: 20px"><b>*it is editable</b></p>
+			@endif
+			
+			@if ($message = Session::get('success'))
+		        <p><b>{{ $message }}</b></p>
+		   	@endif
 
 			<section id="blogs" class="col-md-8 col-xs-12 col-sm-12 col-lg-8">
 				
@@ -29,15 +39,111 @@
 					
 
 					<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-left">
+						
+						@if(Auth::user()->id == $blog->author)
+							
+							<h2 class="heading">{{$blog->title}}</h2>
+						
+							<form action="{{url('/news/update-title')}}" id="title-update" method="post" class="hidden">
+								
+								{{csrf_field()}}
+								<input type="hidden" value="{{$blog->id}}" name="id">
 
-						<img src="assets/images/blog/4.jpg" class="img img-responsive">
+								<input type="text" name="title" class="form-control" value="{{$blog->title}}">
 
-						<br>
+								<br>
 
-						<div class="description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis doloremque, iusto laborum excepturi, architecto, placeat perferendis magni repellendus totam modi nobis odio facere esse molestiae tenetur eaque sint, laboriosam aliquid?							
+								<a href="#" class="main-button goback" style="font-size: 1em; padding: 5px 20px;">Back</a>
 
-						</div>
+								<button type="submit" class="main-button" style="font-size: 1em; padding: 5px 20px;">Update</button>
+
+							</form>
+
+							<script>
+								$(".heading").click(function(event) {
+									$(this).addClass('hidden');
+									$('#title-update').removeClass('hidden');
+								});
+								$(".goback").click(function(event) {
+									$('.heading').removeClass('hidden');
+									$('#title-update').addClass('hidden');
+								});
+							</script>
+
+			{{-- ============================================================= --}}
+							<br>
+			{{-- ============================================================= --}}			
+							<form action="{{url('/news/update-img')}}" method="post" class="update-picture" enctype="multipart/form-data">
+								
+								{{csrf_field()}}
+								<input type="hidden" value="{{$blog->imgs->id}}" name="id">
+
+								<label for="picture">
+									<img src="../{{$blog->imgs->src}}" class="img img-responsive">
+								</label>	
+								<input type="file" id="picture" name="picture" class="hidden">	
+
+							</form>
+
+							<script>
+								
+								$('#picture').change(function(event) {
+									$(".update-picture").submit();
+								});
+
+							</script>
+
+			{{-- ============================================================= --}}
+							<br>
+			{{-- ============================================================= --}}
+
+							<div class="description">{!!$blog->content!!}</div>
+
+							<form action="{{url('/news/update-content')}}" id="content-update" method="post" class="hidden">
+								
+								{{csrf_field()}}
+								<input type="hidden" value="{{$blog->id}}" name="id">
+
+								<textarea name="content" id="" cols="30" rows="10">{{$blog->content}}</textarea>
+								<script>CKEDITOR.replace( 'content' )</script>
+								
+								<br>
+
+								<a href="#" class="main-button back" style="font-size: 1em; padding: 5px 20px;">Back</a>
+
+								<button type="submit" class="main-button" style="font-size: 1em; padding: 5px 20px;">Update</button>
+
+							</form>
+
+							<script>
+								$(".description").click(function(event) {
+									$(this).addClass('hidden');
+									$('#content-update').removeClass('hidden');
+								});
+								$(".back").click(function(event) {
+									$('.description').removeClass('hidden');
+									$('#content-update').addClass('hidden');
+								});
+							</script>
+
+							@else
+							
+							<h2 class="heading">{{$blog->title}}</h2>
+
+							<br>
+
+							<img src="../{{$blog->imgs->src}}" class="img img-responsive">
+
+							<br>
+
+							<div class="description">{!!$blog->content!!}</div>
+
+			{{-- ============================================================= --}}
+
+						@endif
+						
+
+						
 
 					</div>		
 
@@ -46,9 +152,6 @@
 						<div class="row">
 							
 							<h2 class="heading">comments</h2>
-							
-							<script src="assets/js/power.js" external-type="html"></script> 
-	 						<div class="powr-comments" id="8a6dfa31_1497946687"></div>
 
 						</div>
 

@@ -9,7 +9,7 @@ class Blogs extends Model
 	protected $fillable = ['title', 'slug', 'content','img','status'];
 
     public function imgs(){
-    	return $this->hasMany("App\Imgs","id");
+    	return $this->belongsTo("App\Imgs","img");
     }
 
     public function user(){
