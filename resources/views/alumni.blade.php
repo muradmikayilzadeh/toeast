@@ -21,95 +21,62 @@
 		<section id="alumnies" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
 			
 			<div class="container text-center">
+
+				@if(Auth::user())
+
+					<h2 class="heading text-left">add alumni</h2>
+
+					<form action="{{url('/alumni/add-alumni')}}" enctype="multipart/form-data" method="post" class="text-left">
+
+						{{csrf_field()}}
+						<input type="text" class="form-control" placeholder="Name" name="name">
+						<br>
+						<input type="text" class="form-control" placeholder="Surname" name="surname">
+						<br>
+						<input type="file" class="form-control" name="picture">
+						<br>
+						<button type="submit" class="main-button" style="font-size: 1em; padding: 5px 20px;">add</button>
+						
+					</form>
+
+				@endif
 				
 				<h4 class="section-heading">-alumnies-</h4>
 
-				<h2 class="heading">alumnies of 2017</h2>
-
+				@if(count($alumnies) != 0)
+					<h2 class="heading">alumnies of campus</h2>
+				@else
+					<h2 class="heading">no alumnies, come back later :)</h2>
+				@endif
+			
+				@foreach($alumnies as $alumni)
 				<div class="alumni col-md-4 col-sm-6 col-xs-12">
 							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
+					<img src="{{$alumni->img}}" class="img img-responsive img-circle">
 
-					<h3><a href="">Daniel Green</a></h3>
+					<h3><a href="#">{{$alumni->name.' '.$alumni->surname}}</a></h3>
 					<p>Alumni</p>
 
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
-
-				</div>
-
-				<div class="alumni col-md-4 col-sm-6 col-xs-12">
+					@if(Auth::user())
+						
+						<form action="{{url('/alumni/delete-alumni')}}" method="post">
 							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
+							{{csrf_field()}}
+							<input type="hidden" value="{{$alumni->id}}" name="id">
+							<button type="submit" class="main-button" style="font-size: 1em; padding: 5px 20px;">delete</button>
 
-					<h3><a href="">Daniel Green</a></h3>
-					<p>Alumni</p>
+						</form>
 
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
-
-				</div>
-
-				<div class="alumni col-md-4 col-sm-6 col-xs-12">
-							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
-
-					<h3><a href="">Daniel Green</a></h3>
-					<p>Alumni</p>
-
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
+					@endif
 
 				</div>
-
-				<div class="alumni col-md-4 col-sm-6 col-xs-12">
-							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
-
-					<h3><a href="">Daniel Green</a></h3>
-					<p>Alumni</p>
-
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
-
-				</div>
-
-				<div class="alumni col-md-4 col-sm-6 col-xs-12">
-							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
-
-					<h3><a href="">Daniel Green</a></h3>
-					<p>Alumni</p>
-
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
-
-				</div>
-
-				<div class="alumni col-md-4 col-sm-6 col-xs-12">
-							
-					<img src="assets/images/staff/2.jpg" class="img img-responsive img-circle">
-
-					<h3><a href="">Daniel Green</a></h3>
-					<p>Alumni</p>
-
-					<a href="" class="fa fa-facebook"></a>
-					<a href="" class="fa fa-twitter"></a>
-					<a href="" class="fa fa-google-plus"></a>
-
-				</div>
-
+				@endforeach
 
 			</div>
 
 		</section>
 
-		<section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+{{-- 		<section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
 			
 			<div class="container">
 				
@@ -124,6 +91,6 @@
 
 			</div>
 
-		</section>
+		</section> --}}
 
 @endsection

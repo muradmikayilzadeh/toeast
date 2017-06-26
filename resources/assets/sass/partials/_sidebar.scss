@@ -15,9 +15,29 @@
 				padding-bottom:20px;
 			}
 		}
-		// #recent-posts{
-		// 	padding-top:0;
-		// }
+		.result{
+			margin-top: -50px;
+		}
+		a{
+			color:#444444;
+			text-decoration: none;
+			font-family: $mainFont;
+			line-height: 2;
+
+			&:hover{
+				color:white;
+				li{
+					background:#393E47;
+				}
+			}
+		}
+		li{
+			width: 100%;
+			list-style-type: none;
+			background:white;
+			padding:5px;
+			transform: all .4s ease;			
+		}
 	}
 
 	h2{

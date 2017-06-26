@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>toeast.org</title>
 
 	<!-- Links -->
 	<link rel="stylesheet" href="{{url('assets/vendor/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{url('assets/vendor/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{url('assets/css/style.css')}}">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Damion" rel="stylesheet">
-
-	<!-- Scripts -->
-	<script src="{{url('assets/vendor/js/jquery-3.2.1.min.js')}}"></script>
-	<script src="{{url('assets/js/menu.js')}}"></script>
 
 </head>
 <body>
@@ -33,7 +30,7 @@
 						
 						<div class="col-md-4">
 
-							<img src="{{url('assets/images/logo/logo.png')}}" class="img img-responsive">
+							<img src="assets/images/logo/logo.png" class="img img-responsive">
 							<i class="fa fa-bars hidden-md hidden-lg pull-right"></i>
 
 						</div>
@@ -97,7 +94,7 @@
 					
 					<div class="container">
 						
-						<ul class="list">
+						<ul class="list list-inline">
 									
 							<li>
 								<a href="{{url('/')}}">home</a>
@@ -134,19 +131,38 @@
 
 				</section>
 
+				<section id="banner" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+					
+					<div class="container text-center">
+						
+						<div class="caption text-center col-md-12 col-sm-12 col-xs-12">
+							
+							<h1>make your summer</h1>
+
+							<p>unforgotable!</p>
+							
+							<br class="hidden-xs">
+							<a href="" class="main-button">request info</a>
+
+						</div>
+
+					</div>
+
+				</section>
+
 			</div>
 
 		</section>
-
-		@yield('content')
 		
+		@yield('content')
+
 		<section id="footer" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
 			
 			<div class="container">
 				
 				<div id="about" class="col-md-3 col-sm-12 col-xs-12">
 					
-					<img src="{{url('assets/images/logo/logo.png')}}" class="img img-responsive">
+					<img src="assets/images/logo/logo.png" class="img img-responsive">
 
 					<div class="description">
 						7Hills is a New Hampshire summer camp with a heritage that dates back to 1926.
@@ -267,7 +283,7 @@
 				Toest.org © 2017 All Rights Reserved
 
 				<a href="">
-					<img src="{{url('assets/images/logo/mm.png')}}" class="img img-responsive img-circle">
+					<img src="assets/images/logo/mm.png" class="img img-responsive img-circle">
 				</a>
 
 			</div>
@@ -281,3 +297,6 @@
 
 </body>
 </html>
+<!-- Scripts -->
+<script src="assets/vendor/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/menu.js"></script>

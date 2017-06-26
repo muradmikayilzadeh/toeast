@@ -25,8 +25,10 @@
 		
 		<div class="container">
 			
-			@if(Auth::user()->id == $blog->author)
-				<p style="color:red;padding-top: 20px"><b>*it is editable</b></p>
+			@if(Auth::user())
+				@if(Auth::user()->id == $blog->author)
+					<p style="color:red;padding-top: 20px"><b>*it is editable</b></p>
+				@endif
 			@endif
 			
 			@if ($message = Session::get('success'))
@@ -40,9 +42,22 @@
 
 					<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-left">
 						
-						@if(Auth::user()->id == $blog->author)
-							
+						@if(Auth::user())
+
+							@if(Auth::user()->id == $blog->author)
+
 							<h2 class="heading">{{$blog->title}}</h2>
+
+							<br>
+
+							<form action="{{url('/news/delete')}}" method="post">
+								
+								{{csrf_field()}}
+								<input type="hidden" name="id" value="{{$blog->id}}">
+								<button type="submit" class="main-button">delete</button>
+
+							</form>
+
 						
 							<form action="{{url('/news/update-title')}}" id="title-update" method="post" class="hidden">
 								
@@ -126,8 +141,11 @@
 								});
 							</script>
 
+			{{-- ============================================================= --}}
+							@endif
+
 							@else
-							
+
 							<h2 class="heading">{{$blog->title}}</h2>
 
 							<br>
@@ -138,12 +156,8 @@
 
 							<div class="description">{!!$blog->content!!}</div>
 
-			{{-- ============================================================= --}}
-
 						@endif
-						
-
-						
+												
 
 					</div>		
 
@@ -152,6 +166,19 @@
 						<div class="row">
 							
 							<h2 class="heading">comments</h2>
+
+
+							<div id="disqus_thread"></div>
+							<script>
+							(function() {
+							var d = document, s = d.createElement('script');
+							s.src = 'https://toeast-org-1.disqus.com/embed.js';
+							s.setAttribute('data-timestamp', +new Date());
+							(d.head || d.body).appendChild(s);
+							})();
+							</script>
+							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 
 						</div>
 
@@ -168,11 +195,45 @@
 					<div id="search">
 
 						<h2>Search</h2>
-						<input type="text" placeholder="Keyword...">
+						<input type="text" class="search" placeholder="Keyword...">
 
 						<hr>
 
 					</div>
+
+					<div class="result">
+						
+						<div class="row">
+							
+						</div>
+
+					</div>
+
+					<script>
+						
+						$('.search').keypress(function(event) {
+							var keyword=$('.search').val()
+							if(keyword!=' ' || keyword!=''){
+								$.ajax({
+									url: '{{url('/search/')}}',
+									type: 'GET',
+									dataType:'text',
+									data: {keyword: keyword},
+								})
+								.done(function(data) {
+									$('.result .row').html(data)
+								})
+								.fail(function() {
+									console.log("error");
+									})
+								.always(function() {
+									console.log("complete");
+								});
+							}
+								
+						});
+
+					</script>
 
 				</div>
 

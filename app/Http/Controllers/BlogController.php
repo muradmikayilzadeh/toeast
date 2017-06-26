@@ -102,9 +102,38 @@ class BlogController extends Controller
 
 		$blog = Blogs::find($request->id);
 		$blog->title = $request->title;
+		$blog->slug = strtolower(str_replace(" ", "-",$request->title));
 		$blog->save();
-		return back()->with('success','News title changed');
 
+		return redirect('/news/'.$blog->slug)->with('success','Title changed');
+
+	}
+
+
+	public function delete(Request $request){
+
+		$blog = Blogs::find($request->id);
+		$img = Imgs::find($blog->imgs->id);
+
+		$blog->delete();
+		$img->delete();
+
+
+		return redirect('/news');
+
+	}
+
+
+	public function search(){
+
+		$keyword=$_GET['keyword'];
+        $data=Blogs::where('title',$keyword)
+        ->orWhere('title','like','%'.$keyword.'%')->get();
+        foreach ($data as $text) {
+            if($text->active!='0'){
+                echo '<a href='.url('/news/'.$text->slug).'><li>'.$text->title.'</li></a>';
+            }
+        }
 
 	}
 

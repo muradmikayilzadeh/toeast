@@ -19,88 +19,55 @@
 			</div>
 
 		</section>
+		
+
 
 		<section id="gallery" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+
 			
 			<div class="container text-center">
+
+	
+				@if(Auth::user())
+
+					<h2 class="heading text-left">Add Picture(s)</h2>
+					
+					<form action="{{url('/gallery/picture-upload')}}" enctype="multipart/form-data" class="text-left" method="post">
+						
+						{{csrf_field()}}
+						<input type="hidden" value="{{Auth::user()->id}}" name="author">
+						<input type="file" name="pictures[]" multiple class="form-control">
+						<br>
+						<button type="submit" class="main-button" style="font-size: 1em; padding: 5px 20px;">add all</button>
+
+					</form>
+
+				@endif
 				
 				<h4 class="section-heading">-gallery-</h4>
 
-				<h2 class="heading">WATCH OUR SUMMER EVENTS</h2>
+				@if(count($imgs) != 0)
+					
+					<h2 class="heading">WATCH OUR SUMMER EVENTS</h2>
+
+					@else
+
+					<h2 class="heading">no pictures, come back later :)</h2>
+					
+				@endif
 
 				<div id="imgs">
 					
-					<div class="img first">
-						
-						<img src="assets/images/blog/1.jpg" class="img img-responsive">
+					@foreach($imgs as $img)
+					
+						<div class="img">
+								
+							<img src="{{$img->src}}" class="img img-responsive" title="{{$img->title}}">
 
-					</div>
+						</div>
 
-					<div class="img">
-						
-						<img src="assets/images/blog/2.jpg" class="img img-responsive">
+					@endforeach
 
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/3.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img first">
-						
-						<img src="assets/images/blog/1.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/1.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/2.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img first">
-						
-						<img src="assets/images/blog/3.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/1.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/2.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img first">
-						
-						<img src="assets/images/blog/3.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/1.jpg" class="img img-responsive">
-
-					</div>
-
-					<div class="img">
-						
-						<img src="assets/images/blog/2.jpg" class="img img-responsive">
-
-					</div>
 				</div>
 				
 
@@ -117,7 +84,7 @@
 
 		</section>
 
-		<section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+		{{-- <section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
 			
 			<div class="container">
 				
@@ -132,6 +99,9 @@
 
 			</div>
 
-		</section>
+		</section> --}}
+
+		<script src="{{url('assets/js/picture.js')}}"></script>
+
 		
 @endsection

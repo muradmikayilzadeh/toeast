@@ -16,12 +16,8 @@ class CreateAlumnisTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('surname');
-            $table->integer('img')->unsigned()->index();
+            $table->string('img');
             $table->timestamps();
-        });
-
-        Schema::table('alumnis', function(Blueprint $table){
-            $table->foreign('img')->references('id')->on('imgs');
         });
     }
 

@@ -273,7 +273,7 @@
 
 		</section>
 
-		<section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+		{{-- <section id="twitter" class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
 			
 			<div class="container">
 				
@@ -288,6 +288,6 @@
 
 			</div>
 
-		</section>
+		</section> --}}
 
 @endsection		

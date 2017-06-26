@@ -66,24 +66,32 @@
 				
 				<h4 class="section-heading">-news-</h4>
 				
-				@foreach($blogs as $blog)
-				<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
+				@if(count($blogs) != 0)
 					
-					<h2 class="heading">{{$blog->title}}</h2>
+					@foreach($blogs as $blog)
+						<div class="blog" class="col-md-12 col-xs-12 col-sm-12 text-center">
+							
+							<h2 class="heading">{{$blog->title}}</h2>
 
-					<div class="date">
-						{{$blog->created_at->diffForHumans()}} | 
-						By {{$blog->user->name}}
-					</div>
+							<div class="date">
+								{{$blog->created_at->diffForHumans()}} | 
+								By {{$blog->user->name}}
+							</div>
 
-					<img src="{{$blog->imgs->src}}" class="img img-responsive">
+							<img src="{{$blog->imgs->src}}" class="img img-responsive">
 
-					<br>
-					<a href="{{url('/news',$blog->slug)}}" class="main-button">read</a>
-					<br><br><br>
+							<br>
+							<a href="{{url('/news',$blog->slug)}}" class="main-button">read</a>
+							<br><br><br>
 
-				</div>	
-				@endforeach	
+						</div>	
+					@endforeach	
+
+					@else
+					
+					<h2 class="heading">no information, come back later! :)</h2>
+
+				@endif
 
 			</div>
 

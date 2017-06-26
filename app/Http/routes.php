@@ -23,9 +23,7 @@ Route::get('/',function(){
 	return view('index');
 });
 
-Route::get('/alumni',function(){
-	return view('alumni');
-});
+Route::get('/alumni','AlumniController@getAlumnies');
 
 Route::get('/about',function(){
 	return view('about');
@@ -43,12 +41,11 @@ Route::get('/enroll',function(){
 	return view('enroll');
 });
 
-Route::get('/gallery',function(){
-	return view('gallery');
-});
+Route::get('/gallery','ImgController@getGallery');
 
 Route::get('/news','BlogController@getBlogs');
 Route::get('/news/{slug}','BlogController@getBlog');
+Route::get('/search/','BlogController@search');
 
 
 // Admin
@@ -59,5 +56,11 @@ Route::group(['middleware' => ['auth']],function(){
 	Route::post('/news/update-img','BlogController@updateImg');
 	Route::post('/news/update-content','BlogController@updateContent');
 	Route::post('/news/update-title','BlogController@updateTitle');
+	Route::post('/news/delete','BlogController@delete');
+
+	Route::post('/gallery/picture-upload','ImgController@addPictures');
+
+	Route::post('/alumni/add-alumni','AlumniController@addPictures');
+	Route::post('/alumni/delete-alumni','AlumniController@deleteAlumni');
 
 });

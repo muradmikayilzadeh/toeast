@@ -279,6 +279,23 @@ html, body {
         padding-top: 20px; }
       #sidebar .sidebar-list div:last-child {
         padding-bottom: 20px; }
+    #sidebar .sidebar-list .result {
+      margin-top: -50px; }
+    #sidebar .sidebar-list a {
+      color: #444444;
+      text-decoration: none;
+      font-family: "PT Sans Narrow", sans-serif;
+      line-height: 2; }
+      #sidebar .sidebar-list a:hover {
+        color: white; }
+        #sidebar .sidebar-list a:hover li {
+          background: #393E47; }
+    #sidebar .sidebar-list li {
+      width: 100%;
+      list-style-type: none;
+      background: white;
+      padding: 5px;
+      transform: all .4s ease; }
   #sidebar h2 {
     font-weight: bold;
     font-family: "PT Sans Narrow", sans-serif;

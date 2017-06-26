@@ -5,12 +5,13 @@
 	}
 
 	#imgs .img{
-		display: inline-block;
+		display: inline;
 		float: left;
 		margin-top: 10px;
 		margin-left: 10px;
 		transition: all .4s ease;
 		background:rgba(17, 19, 24, 0.9);
+		max-height: 200px;
 		&:hover{
 			cursor: pointer;
 			img{
