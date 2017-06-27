@@ -204,30 +204,29 @@
 					</ul>
 
 				</div>
+				@php
+					use App\Blogs;
+					use App\Imgs;
 
+					$blogs = Blogs::orderBy('created_at','desc')->get();
+					$imgs = Imgs::orderBy('created_at','desc')->get();
+
+				@endphp
 				<div id="posts" class="col-md-3 col-sm-12 col-xs-12">
 					
 					<h3 class="heading-footer">recent posts</h3>
 					
+					@foreach($blogs as $blog)
 					<div class="blog">
 
-						<h4><a href="">We Teach Your Kids that Responibility is Fun</a></h4>
+						<h4><a href="">{{$blog->title}}</a></h4>
 
-						<div class="date">FEB 29, 2016</div>
+						<div class="date">{{$blog->created_at->diffForHumans()}}</div>
 
-						<div class="content">Phasellus semper nisi eu quam eleifend, eu tullam vel </div>
-
-					</div>
-
-					<div class="blog">
-
-						<h4><a href="">The Widest Range of Activities for Everyone</a></h4>
-
-						<div class="date">FEB 18, 2016</div>
-						
-						<div class="content">Phasellus semper nisi eu quam eleifend, eu tullam vel </div>
+						<div class="content">{!! substr($blog->content, 0,50)!!}</div>
 
 					</div>
+					@endforeach
 
 				</div>
 
@@ -237,19 +236,9 @@
 
 					<div class="imgs">
 						
-						<img src="assets/images/footer/gallery/1.jpg" class="first img img-responsive">
-
-						<img src="assets/images/footer/gallery/2.jpg" class="img img-responsive">
-
-						<img src="assets/images/footer/gallery/3.jpg" class="img img-responsive">
-
-						<img src="assets/images/footer/gallery/4.jpg" class="first img img-responsive">
-
-						<img src="assets/images/footer/gallery/5.jpg" class="img img-responsive">
-
-						<img src="assets/images/footer/gallery/6.jpg" class="img img-responsive">
-
-
+						@foreach($imgs as $img)
+						<img src="../{{$img->src}}" class="first img img-responsive">
+						@endforeach
 
 					</div>
 

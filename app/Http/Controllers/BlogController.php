@@ -55,7 +55,7 @@ class BlogController extends Controller
 
 		$new = new Blogs;
 		$new->title = $request->title;
-		$new->slug = strtolower(str_replace(" ", "-",$request->title));
+		$new->slug = strtolower(str_replace(" ", "-",$request->title)).'-'.time();
 		$new->content = $request->content;
 		$new->img = $img_id;
 		$new->author = $request->author;
@@ -102,7 +102,7 @@ class BlogController extends Controller
 
 		$blog = Blogs::find($request->id);
 		$blog->title = $request->title;
-		$blog->slug = strtolower(str_replace(" ", "-",$request->title));
+		$blog->slug = strtolower(str_replace(" ", "-",$request->title)).'-'.time();
 		$blog->save();
 
 		return redirect('/news/'.$blog->slug)->with('success','Title changed');
