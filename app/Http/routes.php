@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth']],function(){
 
 	Route::post('/gallery/picture-upload','ImgController@addPictures');
 
-	Route::post('/alumni/add-alumni','AlumniController@addPictures');
+	Route::post('/alumni/add-alumni','AlumniController@addAlumni');
 	Route::post('/alumni/delete-alumni','AlumniController@deleteAlumni');
 
 });
