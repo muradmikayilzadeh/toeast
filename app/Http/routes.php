@@ -48,6 +48,9 @@ Route::get('/news/{slug}','BlogController@getBlog');
 Route::get('/search/','BlogController@search');
 
 
+Route::post('/enroll/submit','EnrollController@newRegister');
+
+
 // Admin
 Route::group(['middleware' => ['auth']],function(){
 

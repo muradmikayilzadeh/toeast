@@ -45,25 +45,31 @@
 					
 					<h2 class="heading">Fill out this form</h2>
 
-					<form action="" class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+
+					@if ($message = Session::get('success'))
+				        <p><b>{{ $message }}</b></p>
+				   	@endif
+
+					<form action="{{url('/enroll/submit')}}" class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3" method="post">
 						
-						<input type="text" placeholder="Name">
+						{{csrf_field()}}
+						<input type="text" placeholder="@if($errors->has('name')) Name field is required @else Name @endif" name="name">
 
 						<br><br>
 
-						<input type="text" placeholder="Surname">
+						<input type="text" placeholder="@if($errors->has('surname')) Surname field is required @else Surname @endif" name="surname">
 
 						<br><br>
 
-						<input type="email" placeholder="E-mail">
+						<input type="email" placeholder="@if($errors->has('name')) E-mail field has a problem @else E-mail @endif" name="email">
 
 						<br><br>
 
-						<input type="phone" placeholder="Phone Number">
+						<input type="phone" placeholder="@if($errors->has('name')) Phone field is required @else Phone @endif" name="phone">
 
 						<br><br>
 
-						<input type="date">
+						<input type="date" name="date">
 
 						<br><br>
 
